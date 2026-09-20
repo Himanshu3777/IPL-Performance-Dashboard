@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+db.sqlite3
+
+.env
+
+staticfiles/
+
+.ipynb_checkpoints/
+
+ipl-ball-by-ball-dataset.csv
+ipl_807_unique_players.csv

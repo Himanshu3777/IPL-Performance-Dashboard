@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Player Analysis{% endblock %}
+
+{% block content %}
+
+<style>
+.suggestions-box {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1e1e2e;
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 9999;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+}
+
+.suggestion-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.suggestion-item:hover {
+  background: #ffd700;
+  color: #1e1e2e;
+  font-weight: bold;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+/* Input box fix */
+#playerInput {
+  background: #1e1e2e !important;
+  color: #ffffff !important;
+  border: 2px solid #ffd700 !important;
+  font-size: 16px;
+}
+
+#playerInput::placeholder {
+  color: #aaaaaa !important;
+  opacity: 1 !important;
+}
+
+#playerInput:focus {
+  background: #1e1e2e !important;
+  color: #ffffff !important;
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5) !important;
+}
+
+/* Description text fix */
+.text-muted {
+  color: #b0b0b0 !important;
+}
+
+h3, h5 {
+  color: #ffd700 !important;
+}
+</style>
+
+<section class="glass-card p-4 mb-4">
+  <h3 style="color: #ffd700;">👤 Player Analysis</h3>
+  <p class="text-muted" style="color: #b0b0b0 !important;">
+    Koi bhi IPL player ka naam type karo — real-time stats milenge.
+  </p>
+
+  <div class="position-relative mt-3">
+    <input 
+      type="text" 
+      id="playerInput" 
+      class="form-control form-control-lg"
+      placeholder="Type player name (e.g., Virat Kohli, MS Dhoni, Rohit Sharma...)"
+      autocomplete="off"
+      style="background: #1e1e2e; color: #fff; border: 2px solid #ffd700;"
+    />
+    <div id="suggestions" class="suggestions-box"></div>
+  </div>
+
+  <button class="btn btn-warning mt-3" onclick="analyzePlayer()">
+    🔍 Analyze Player
+  </button>
+</section>
+
+<section id="playerResult" class="glass-card p-4"></section>
+
+<script src="{% static 'dashboard/js/player_analysis.js' %}"></script>
+{% endblock %}

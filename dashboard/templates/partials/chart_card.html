@@ -1,0 +1,30 @@
+{% load static %}
+
+{# ═══════════════════════════════════════════════════════════
+   REUSABLE CHART CARD
+   Usage:
+   {% include 'partials/chart_card.html' with title='Season Wise Matches' icon='fa-chart-bar' img=charts.matches %}
+
+   'img' should be static-relative path like 'images/team/matches.png'
+   ═══════════════════════════════════════════════════════════ #}
+
+<section class="chart-card glass-card mb-4">
+
+  <div class="chart-header">
+    <h3>
+      <i class="fas {{ icon|default:'fa-chart-bar' }} me-2"></i>{{ title }}
+    </h3>
+  </div>
+
+  <div class="chart-body">
+    {% if img %}
+      <img src="{% static img %}" class="chart-img" alt="{{ title }}">
+    {% else %}
+      <div class="demo-chart">
+        <i class="fas fa-chart-bar"></i>
+        <span>No chart available</span>
+      </div>
+    {% endif %}
+  </div>
+
+</section>

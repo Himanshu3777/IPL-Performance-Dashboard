@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - IPL Dashboard{% endblock %}
+
+{% block content %}
+<section class="glass-card p-5 mb-4 text-center">
+    <h1 class="text-warning">🏏 IPL Data Analysis Dashboard</h1>
+    <p class="mt-3">295,732 balls ka complete data — 2008 se 2025 tak</p>
+    <p class="text-muted">10 Teams | 850+ Players | 1000+ Matches</p>
+
+    <div class="row g-3 mt-4">
+        <div class="col-md-6">
+            <a href="{% url 'team_analysis' %}" class="btn btn-warning btn-lg w-100">
+                📊 Team Analysis
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'player_analysis' %}" class="btn btn-warning btn-lg w-100">
+                👤 Player Analysis
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="glass-card p-4">
+    <h3 class="text-warning">📌 Kya Kar Sakte Ho?</h3>
+    <ul class="mt-3">
+        <li>Kisi bhi IPL team ka complete analysis (matches, wins, runs, wickets)</li>
+        <li>Top 5 batters aur bowlers per team</li>
+        <li>Kisi bhi player ka complete career stats (batting + bowling)</li>
+        <li>Real-time suggestions — naam type karte hi suggestions</li>
+        <li>Smart search — "Virat Kohli" type karo, "V Kohli" mil jayega</li>
+    </ul>
+</section>
+{% endblock %}
