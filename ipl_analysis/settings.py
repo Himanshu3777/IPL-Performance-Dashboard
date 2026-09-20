@@ -16,7 +16,12 @@ SECRET_KEY = 'django-insecure-2u-u29g-*k+&7i)fiv&n00wqzl+2y!q%#xr2le^@b%6tm8@+-h
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "ipl-performance-dashboard.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # ═══════════════════════════════════════════════════════════
